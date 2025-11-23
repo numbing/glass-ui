@@ -1,12 +1,14 @@
 {
   "name": "@mir.saidi/glass-ui",
-  "version": "0.1.1",
-  "description": "A premium React UI library with macOS-inspired glass surfaces",
+  "version": "1.0.0",
+  "description": "A premium React UI library with Apple-inspired glass surfaces. Features true glassmorphism with translucent backgrounds, blur effects, and smooth animations.",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
   "files": [
-    "dist"
+    "dist",
+    "README.md",
+    "LICENSE"
   ],
   "scripts": {
     "build": "rollup -c",
@@ -23,9 +25,20 @@
     "glass",
     "glassmorphism",
     "design-system",
-    "typescript"
+    "typescript",
+    "apple",
+    "macos",
+    "ios",
+    "blur",
+    "translucent",
+    "liquid-glass",
+    "ui-library",
+    "react-components",
+    "tailwind-alternative",
+    "material-ui-alternative",
+    "chakra-alternative"
   ],
-  "author": "",
+  "author": "Mir Saidi <mir.saidi@example.com>",
   "license": "MIT",
   "peerDependencies": {
     "react": "^18.0.0",

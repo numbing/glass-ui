@@ -122,6 +122,7 @@
   --gl-z-sticky: 1100;
   --gl-z-nav: 1200;
   --gl-z-tooltip: 2000;
+  --gl-z-toast: 2500;
   --gl-z-sheet: 3000;
   --gl-z-modal: 4000;
 

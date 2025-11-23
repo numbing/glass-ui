@@ -1,0 +1,130 @@
+/* Tabs Component Styles - Apple Glass */
+
+.gl-tabs {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.gl-tabs-list {
+  display: flex;
+  gap: var(--gl-space-xs);
+  padding: var(--gl-space-xs);
+  background: var(--gl-color-surface);
+  backdrop-filter: blur(var(--gl-blur-control)) saturate(160%);
+  -webkit-backdrop-filter: blur(var(--gl-blur-control)) saturate(160%);
+  border: 1px solid var(--gl-color-border);
+  border-radius: var(--gl-radius-lg);
+  box-shadow: var(--gl-shadow-soft), var(--gl-shadow-inner);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.gl-tabs-list::-webkit-scrollbar {
+  display: none;
+}
+
+.gl-tab {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--gl-space-sm);
+  padding: var(--gl-space-md) var(--gl-space-xl);
+  font-size: var(--gl-font-size-sm);
+  font-weight: var(--gl-font-weight-medium);
+  color: var(--gl-color-text-muted);
+  background: transparent;
+  border: none;
+  border-radius: var(--gl-radius-md);
+  cursor: pointer;
+  transition: all var(--gl-transition-fast);
+  white-space: nowrap;
+  user-select: none;
+}
+
+.gl-tab:hover:not(:disabled) {
+  color: var(--gl-color-text);
+  background: var(--gl-color-hover);
+}
+
+.gl-tab-active {
+  color: var(--gl-color-text);
+  background: var(--gl-color-surface-strong);
+  box-shadow: var(--gl-shadow-soft), var(--gl-shadow-inner);
+  border: 1px solid var(--gl-color-border);
+  padding: calc(var(--gl-space-md) - 1px) calc(var(--gl-space-xl) - 1px);
+}
+
+.gl-tab:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.gl-tab-icon {
+  font-size: 16px;
+  line-height: 1;
+}
+
+.gl-tabs-panels {
+  margin-top: var(--gl-space-lg);
+}
+
+.gl-tab-panel {
+  display: none;
+  animation: gl-fade-in var(--gl-transition-fast);
+}
+
+.gl-tab-panel-active {
+  display: block;
+}
+
+/* Variants */
+.gl-tabs-underline .gl-tabs-list {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--gl-color-border);
+  border-radius: 0;
+  padding: 0;
+  gap: 0;
+  box-shadow: none;
+}
+
+.gl-tabs-underline .gl-tab {
+  border-radius: 0;
+  border-bottom: 2px solid transparent;
+  padding: var(--gl-space-md) var(--gl-space-lg);
+  margin-bottom: -1px;
+}
+
+.gl-tabs-underline .gl-tab-active {
+  border-bottom-color: var(--gl-color-accent);
+  color: var(--gl-color-accent);
+  background: transparent;
+  box-shadow: none;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  padding: var(--gl-space-md) var(--gl-space-lg);
+}
+
+/* Animations */
+@keyframes gl-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .gl-tab {
+    padding: var(--gl-space-sm) var(--gl-space-lg);
+  }
+
+  .gl-tab-active {
+    padding: calc(var(--gl-space-sm) - 1px) calc(var(--gl-space-lg) - 1px);
+  }
+}

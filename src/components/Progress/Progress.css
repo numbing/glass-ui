@@ -1,0 +1,105 @@
+/* Progress Component Styles - Apple Glass */
+
+.gl-progress {
+  width: 100%;
+}
+
+.gl-progress-track {
+  position: relative;
+  width: 100%;
+  height: 8px;
+  background: var(--gl-color-surface);
+  backdrop-filter: blur(var(--gl-blur-control)) saturate(160%);
+  -webkit-backdrop-filter: blur(var(--gl-blur-control)) saturate(160%);
+  border: 1px solid var(--gl-color-border);
+  border-radius: var(--gl-radius-full);
+  overflow: hidden;
+  box-shadow: var(--gl-shadow-inner);
+}
+
+.gl-progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--gl-color-accent) 0%, var(--gl-color-accent-hover) 100%);
+  border-radius: var(--gl-radius-full);
+  transition: width var(--gl-transition-base);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.gl-progress-bar::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    transparent 100%
+  );
+  animation: gl-progress-shimmer 2s infinite;
+}
+
+.gl-progress-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--gl-space-sm);
+  font-size: var(--gl-font-size-sm);
+  font-weight: var(--gl-font-weight-medium);
+  color: var(--gl-color-text);
+}
+
+.gl-progress-percent {
+  font-weight: var(--gl-font-weight-semibold);
+  color: var(--gl-color-accent);
+}
+
+/* Sizes */
+.gl-progress-sm .gl-progress-track {
+  height: 6px;
+}
+
+.gl-progress-lg .gl-progress-track {
+  height: 12px;
+}
+
+/* Variants */
+.gl-progress-success .gl-progress-bar {
+  background: linear-gradient(90deg, var(--gl-color-success) 0%, #2db84e 100%);
+}
+
+.gl-progress-warning .gl-progress-bar {
+  background: linear-gradient(90deg, var(--gl-color-warning) 0%, #ffaa00 100%);
+}
+
+.gl-progress-error .gl-progress-bar {
+  background: linear-gradient(90deg, var(--gl-color-error) 0%, #ff4f44 100%);
+}
+
+/* Indeterminate */
+.gl-progress-indeterminate .gl-progress-bar {
+  width: 30% !important;
+  animation: gl-progress-indeterminate 1.5s ease-in-out infinite;
+}
+
+@keyframes gl-progress-indeterminate {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(400%);
+  }
+}
+
+@keyframes gl-progress-shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}

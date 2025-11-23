@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import {
+  Alert,
   Button,
   Input,
   InputGroup,
@@ -29,6 +30,10 @@ import {
   GlassTopNav,
   GlassNavItem,
   GlassBottomNav,
+  Tabs,
+  Progress,
+  Spinner,
+  Menu,
 } from 'glass-ui';
 
 function Demo() {
@@ -38,6 +43,7 @@ function Demo() {
   const [activeNav, setActiveNav] = useState('home');
   const [sliderValue, setSliderValue] = useState(50);
   const [volumeValue, setVolumeValue] = useState(75);
+  const [showAlert, setShowAlert] = useState(true);
 
   return (
     <div
@@ -331,6 +337,155 @@ function Demo() {
                 <Tooltip content="Tooltip on right" position="right">
                   <Button variant="subtle">Right</Button>
                 </Tooltip>
+              </Stack>
+            </CardBody>
+          </Card>
+
+          {/* Alerts */}
+          <Card>
+            <CardHeader title="Alerts" description="Success, warning, error, and info messages" />
+            <CardBody>
+              <Stack gap="md">
+                {showAlert && (
+                  <Alert
+                    variant="success"
+                    title="Success!"
+                    description="Your changes have been saved successfully."
+                    closable
+                    onClose={() => setShowAlert(false)}
+                  />
+                )}
+                <Alert
+                  variant="warning"
+                  title="Warning"
+                  description="Please review your information before proceeding."
+                />
+                <Alert
+                  variant="error"
+                  title="Error"
+                  description="Unable to process your request. Please try again."
+                  closable
+                />
+                <Alert
+                  variant="info"
+                  title="Information"
+                  description="New features are now available in the dashboard."
+                />
+              </Stack>
+            </CardBody>
+          </Card>
+
+          {/* Tabs */}
+          <Card>
+            <CardHeader title="Tabs" description="Default and underline variants" />
+            <CardBody>
+              <Stack gap="lg">
+                <Tabs
+                  items={[
+                    {
+                      key: '1',
+                      label: 'Profile',
+                      icon: '👤',
+                      children: (
+                        <Text>Profile settings and personal information.</Text>
+                      ),
+                    },
+                    {
+                      key: '2',
+                      label: 'Security',
+                      icon: '🔒',
+                      children: (
+                        <Text>Password, 2FA, and security preferences.</Text>
+                      ),
+                    },
+                    {
+                      key: '3',
+                      label: 'Notifications',
+                      icon: '🔔',
+                      children: (
+                        <Text>Email and push notification settings.</Text>
+                      ),
+                    },
+                  ]}
+                />
+                <Tabs
+                  variant="underline"
+                  items={[
+                    {
+                      key: '1',
+                      label: 'Overview',
+                      children: <Text>Overview content goes here.</Text>,
+                    },
+                    {
+                      key: '2',
+                      label: 'Analytics',
+                      children: <Text>Analytics data and charts.</Text>,
+                    },
+                    {
+                      key: '3',
+                      label: 'Reports',
+                      children: <Text>Generated reports and exports.</Text>,
+                    },
+                  ]}
+                />
+              </Stack>
+            </CardBody>
+          </Card>
+
+          {/* Progress */}
+          <Card>
+            <CardHeader title="Progress Bars" description="Loading and completion indicators" />
+            <CardBody>
+              <Stack gap="lg">
+                <Progress value={45} label="Upload Progress" showPercent />
+                <Progress value={75} variant="success" showPercent />
+                <Progress value={30} variant="warning" showPercent />
+                <Progress value={90} variant="error" showPercent />
+                <Progress indeterminate label="Processing..." />
+              </Stack>
+            </CardBody>
+          </Card>
+
+          {/* Spinner */}
+          <Card>
+            <CardHeader title="Spinners" description="Loading indicators" />
+            <CardBody>
+              <Stack direction="horizontal" gap="xl" style={{ alignItems: 'center' }}>
+                <Spinner size="sm" />
+                <Spinner size="md" label="Loading..." />
+                <Spinner size="lg" variant="success" />
+                <Spinner variant="error" label="Error loading" />
+              </Stack>
+            </CardBody>
+          </Card>
+
+          {/* Menu */}
+          <Card>
+            <CardHeader title="Dropdown Menu" description="Context and action menus" />
+            <CardBody>
+              <Stack direction="horizontal" gap="md">
+                <Menu
+                  trigger={<Button variant="subtle">Actions Menu</Button>}
+                  items={[
+                    { type: 'label', label: 'Actions' },
+                    { key: '1', label: 'Edit', icon: '✏️', shortcut: '⌘E' },
+                    { key: '2', label: 'Duplicate', icon: '📋', shortcut: '⌘D' },
+                    { type: 'divider' },
+                    { key: '3', label: 'Archive', icon: '📦' },
+                    { key: '4', label: 'Delete', icon: '🗑️', danger: true, shortcut: '⌘⌫' },
+                  ]}
+                />
+                <Menu
+                  trigger={<Button variant="primary">User Menu</Button>}
+                  position="bottom"
+                  items={[
+                    { key: '1', label: 'Profile', icon: '👤' },
+                    { key: '2', label: 'Settings', icon: '⚙️' },
+                    { type: 'divider' },
+                    { key: '3', label: 'Help & Support', icon: '❓' },
+                    { key: '4', label: 'Sign Out', icon: '🚪', danger: true },
+                  ]}
+                />
               </Stack>
             </CardBody>
           </Card>
