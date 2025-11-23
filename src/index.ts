@@ -13,6 +13,7 @@ export * from './components/Layout';
 export * from './components/Navigation';
 export * from './components/Select';
 export * from './components/Sheet';
+export * from './components/Slider';
 export * from './components/Switch';
 export * from './components/Tooltip';
 export * from './components/Typography';

@@ -13,6 +13,7 @@ import {
   Checkbox,
   Radio,
   Switch,
+  Slider,
   Badge,
   Avatar,
   AvatarGroup,
@@ -35,6 +36,8 @@ function Demo() {
   const [dropdownValue, setDropdownValue] = useState('');
   const [checked, setChecked] = useState(false);
   const [activeNav, setActiveNav] = useState('home');
+  const [sliderValue, setSliderValue] = useState(50);
+  const [volumeValue, setVolumeValue] = useState(75);
 
   return (
     <div
@@ -169,6 +172,31 @@ function Demo() {
                 <Stack gap="md">
                   <Switch label="Enable notifications" />
                   <Switch label="Auto-save changes" />
+                </Stack>
+
+                <Stack gap="lg">
+                  <Slider
+                    label="Brightness"
+                    showValue
+                    value={sliderValue}
+                    onChange={setSliderValue}
+                    min={0}
+                    max={100}
+                  />
+                  <Slider
+                    label="Volume"
+                    showValue
+                    value={volumeValue}
+                    onChange={setVolumeValue}
+                    min={0}
+                    max={100}
+                  />
+                  <Slider
+                    label="Temperature"
+                    defaultValue={22}
+                    min={16}
+                    max={30}
+                  />
                 </Stack>
 
                 <Stack gap="md">
