@@ -1,5 +1,5 @@
 {
-  "name": "@mir.saidi/glass-ui",
+  "name": "liquid-glassui",
   "version": "1.0.0",
   "description": "A premium React UI library with Apple-inspired glass surfaces. Features true glassmorphism with translucent backgrounds, blur effects, and smooth animations.",
   "main": "dist/index.js",
