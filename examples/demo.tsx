@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import {
   Alert,
   Button,
@@ -56,6 +56,37 @@ function Demo() {
   const [showAlert, setShowAlert] = useState(true);
   const [sortColumn, setSortColumn] = useState<string | null>(null);
   const [sortDirection, setSortDirection] = useState<'asc' | 'desc'>('asc');
+
+  // Table data
+  const projectData = [
+    { name: 'Website Redesign', project: 'Design System', progress: 75 },
+    { name: 'Mobile App', project: 'iOS Development', progress: 45 },
+    { name: 'API Integration', project: 'Backend', progress: 90 },
+    { name: 'User Testing', project: 'Research', progress: 30 },
+  ];
+
+  // Sort data based on column and direction
+  const sortedData = useMemo(() => {
+    if (!sortColumn) return projectData;
+
+    return [...projectData].sort((a, b) => {
+      const aVal = a[sortColumn as keyof typeof a];
+      const bVal = b[sortColumn as keyof typeof b];
+
+      if (typeof aVal === 'number' && typeof bVal === 'number') {
+        return sortDirection === 'asc' ? aVal - bVal : bVal - aVal;
+      }
+
+      const aStr = String(aVal).toLowerCase();
+      const bStr = String(bVal).toLowerCase();
+
+      if (sortDirection === 'asc') {
+        return aStr.localeCompare(bStr);
+      } else {
+        return bStr.localeCompare(aStr);
+      }
+    });
+  }, [sortColumn, sortDirection]);
 
   return (
     <div
@@ -830,46 +861,18 @@ function Demo() {
                       </Table.Row>
                     </Table.Header>
                     <Table.Body>
-                      <Table.Row>
-                        <Table.Cell>Website Redesign</Table.Cell>
-                        <Table.Cell>Design System</Table.Cell>
-                        <Table.Cell>
-                          <Progress value={75} size="sm" />
-                        </Table.Cell>
-                        <Table.Cell align="right">
-                          <Button variant="ghost" size="sm">View</Button>
-                        </Table.Cell>
-                      </Table.Row>
-                      <Table.Row>
-                        <Table.Cell>Mobile App</Table.Cell>
-                        <Table.Cell>iOS Development</Table.Cell>
-                        <Table.Cell>
-                          <Progress value={45} size="sm" />
-                        </Table.Cell>
-                        <Table.Cell align="right">
-                          <Button variant="ghost" size="sm">View</Button>
-                        </Table.Cell>
-                      </Table.Row>
-                      <Table.Row>
-                        <Table.Cell>API Integration</Table.Cell>
-                        <Table.Cell>Backend</Table.Cell>
-                        <Table.Cell>
-                          <Progress value={90} size="sm" />
-                        </Table.Cell>
-                        <Table.Cell align="right">
-                          <Button variant="ghost" size="sm">View</Button>
-                        </Table.Cell>
-                      </Table.Row>
-                      <Table.Row>
-                        <Table.Cell>Documentation</Table.Cell>
-                        <Table.Cell>Content</Table.Cell>
-                        <Table.Cell>
-                          <Progress value={30} size="sm" />
-                        </Table.Cell>
-                        <Table.Cell align="right">
-                          <Button variant="ghost" size="sm">View</Button>
-                        </Table.Cell>
-                      </Table.Row>
+                      {sortedData.map((row, index) => (
+                        <Table.Row key={index}>
+                          <Table.Cell>{row.name}</Table.Cell>
+                          <Table.Cell>{row.project}</Table.Cell>
+                          <Table.Cell>
+                            <Progress value={row.progress} size="sm" />
+                          </Table.Cell>
+                          <Table.Cell align="right">
+                            <Button variant="ghost" size="sm">View</Button>
+                          </Table.Cell>
+                        </Table.Row>
+                      ))}
                     </Table.Body>
                   </Table>
                 </div>
