@@ -41,7 +41,7 @@ import {
   SkeletonCard,
   SkeletonTable,
   DatePicker,
-} from 'glass-ui';
+} from 'apple-liquid-glass-ui';
 
 function Demo() {
   const [sheetOpen, setSheetOpen] = useState(false);

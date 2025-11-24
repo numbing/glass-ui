@@ -1,0 +1,5 @@
+{
+  "buildCommand": "cd examples && npm install && npm run build",
+  "outputDirectory": "examples/dist",
+  "installCommand": "npm install --prefix examples"
+}

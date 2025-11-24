@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "apple-liquid-glass-ui": "^1.0.5",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
