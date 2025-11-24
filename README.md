@@ -18,7 +18,7 @@ Perfect for creating modern, elegant UIs with authentic macOS/iOS feel.
 ## Installation
 
 ```bash
-npm install liquid-glassui
+npm install apple-liquid-glass-ui
 ```
 
 ## Quick Start
@@ -26,7 +26,7 @@ npm install liquid-glassui
 Import the CSS tokens and utilities in your app entry point:
 
 ```tsx
-import 'liquid-glassui/dist/index.css';
+import 'apple-liquid-glass-ui/dist/index.css';
 ```
 
 Set the theme attribute on your HTML element:
@@ -40,7 +40,7 @@ Set the theme attribute on your HTML element:
 Add a colorful background to see the glass effect:
 
 ```tsx
-import { Button, Card } from 'liquid-glassui';
+import { Button, Card } from 'apple-liquid-glass-ui';
 
 function App() {
   return (
@@ -54,7 +54,7 @@ function App() {
       }}
     >
       <Card padding="lg">
-        <h1>Welcome to liquid-glassui</h1>
+        <h1>Welcome to apple-liquid-glass-ui</h1>
         <Button variant="primary">Get Started</Button>
       </Card>
     </div>
@@ -64,12 +64,12 @@ function App() {
 
 ## Dual API
 
-liquid-glassui supports both React components and classname utilities.
+apple-liquid-glass-ui supports both React components and classname utilities.
 
 ### React Components
 
 ```tsx
-import { Button } from 'liquid-glassui';
+import { Button } from 'apple-liquid-glass-ui';
 
 <Button variant="primary" size="md">
   Click me
@@ -306,7 +306,7 @@ import { Tooltip } from 'glass-ui';
 ### Layout
 
 ```tsx
-import { Container, Stack, Grid, Divider, Spacer, Center } from 'liquid-glassui';
+import { Container, Stack, Grid, Divider, Spacer, Center } from 'apple-liquid-glass-ui';
 
 <Container size="lg">
   <Stack gap="lg">
@@ -350,7 +350,7 @@ import { Container, Stack, Grid, Divider, Spacer, Center } from 'liquid-glassui'
 Display important messages with glass-styled alerts:
 
 ```tsx
-import { Alert } from 'liquid-glassui';
+import { Alert } from 'apple-liquid-glass-ui';
 
 <Alert
   variant="success"
@@ -388,7 +388,7 @@ import { Alert } from 'liquid-glassui';
 Apple-style navigation with glass blur effect:
 
 ```tsx
-import { GlassTopNav, GlassNavItem, GlassBottomNav } from 'liquid-glassui';
+import { GlassTopNav, GlassNavItem, GlassBottomNav } from 'apple-liquid-glass-ui';
 
 // Top Navigation
 <GlassTopNav>
@@ -432,7 +432,7 @@ import { GlassTopNav, GlassNavItem, GlassBottomNav } from 'liquid-glassui';
 Range input with glass styling and optional value display:
 
 ```tsx
-import { Slider } from 'liquid-glassui';
+import { Slider } from 'apple-liquid-glass-ui';
 
 const [volume, setVolume] = useState(50);
 
@@ -472,7 +472,7 @@ const [volume, setVolume] = useState(50);
 Content organization with default or underline variants:
 
 ```tsx
-import { Tabs } from 'liquid-glassui';
+import { Tabs } from 'apple-liquid-glass-ui';
 
 <Tabs
   items={[
@@ -502,7 +502,7 @@ import { Tabs } from 'liquid-glassui';
 Progress indicators with optional percentage display:
 
 ```tsx
-import { Progress } from 'liquid-glassui';
+import { Progress } from 'apple-liquid-glass-ui';
 
 // Determinate progress
 <Progress value={45} showPercent size="md" />
@@ -536,7 +536,7 @@ import { Progress } from 'liquid-glassui';
 Loading indicators with optional overlay mode:
 
 ```tsx
-import { Spinner } from 'liquid-glassui';
+import { Spinner } from 'apple-liquid-glass-ui';
 
 // Basic spinner
 <Spinner size="md" />
@@ -563,7 +563,7 @@ import { Spinner } from 'liquid-glassui';
 Context menus and dropdown menus with glass styling:
 
 ```tsx
-import { Menu } from 'liquid-glassui';
+import { Menu } from 'apple-liquid-glass-ui';
 
 <Menu
   trigger={<Button>Actions</Button>}

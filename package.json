@@ -1,5 +1,5 @@
 {
-  "name": "liquid-glassui",
+  "name": "apple-liquid-glass-ui",
   "version": "1.0.0",
   "description": "A premium React UI library with Apple-inspired glass surfaces. Features true glassmorphism with translucent backgrounds, blur effects, and smooth animations.",
   "main": "dist/index.js",
@@ -67,10 +67,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/yourusername/glass-ui"
+    "url": "https://github.com/numbing/glass-ui"
   },
   "bugs": {
-    "url": "https://github.com/yourusername/glass-ui/issues"
+    "url": "https://github.com/numbing/glass-ui/issues"
   },
-  "homepage": "https://github.com/yourusername/glass-ui#readme"
+  "homepage": "https://github.com/numbing/glass-ui#readme"
 }
