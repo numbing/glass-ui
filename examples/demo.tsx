@@ -41,6 +41,7 @@ import {
   SkeletonCard,
   SkeletonTable,
   DatePicker,
+  Table,
 } from 'apple-liquid-glass-ui';
 
 function Demo() {
@@ -53,6 +54,8 @@ function Demo() {
   const [selectedDate, setSelectedDate] = useState<Date | undefined>();
   const [birthDate, setBirthDate] = useState<Date | undefined>();
   const [showAlert, setShowAlert] = useState(true);
+  const [sortColumn, setSortColumn] = useState<string | null>(null);
+  const [sortDirection, setSortDirection] = useState<'asc' | 'desc'>('asc');
 
   return (
     <div
@@ -718,6 +721,210 @@ function Demo() {
                     Table Loading State
                   </Text>
                   <SkeletonTable rows={5} columns={4} />
+                </div>
+              </Stack>
+            </CardBody>
+          </Card>
+
+          {/* Table */}
+          <Card>
+            <CardHeader title="Table" description="Data tables with sorting and styling options" />
+            <CardBody>
+              <Stack gap="xl">
+                {/* Basic Table */}
+                <div>
+                  <Text size="sm" weight="semibold" style={{ marginBottom: '0.5rem' }}>
+                    Basic Table
+                  </Text>
+                  <Table>
+                    <Table.Header>
+                      <Table.Row>
+                        <Table.Head>Name</Table.Head>
+                        <Table.Head>Email</Table.Head>
+                        <Table.Head>Role</Table.Head>
+                        <Table.Head align="right">Status</Table.Head>
+                      </Table.Row>
+                    </Table.Header>
+                    <Table.Body>
+                      <Table.Row>
+                        <Table.Cell>Sarah Chen</Table.Cell>
+                        <Table.Cell>sarah@example.com</Table.Cell>
+                        <Table.Cell>Designer</Table.Cell>
+                        <Table.Cell align="right">
+                          <Badge variant="success" size="sm">Active</Badge>
+                        </Table.Cell>
+                      </Table.Row>
+                      <Table.Row>
+                        <Table.Cell>Mike Ross</Table.Cell>
+                        <Table.Cell>mike@example.com</Table.Cell>
+                        <Table.Cell>Developer</Table.Cell>
+                        <Table.Cell align="right">
+                          <Badge variant="success" size="sm">Active</Badge>
+                        </Table.Cell>
+                      </Table.Row>
+                      <Table.Row>
+                        <Table.Cell>Emma Stone</Table.Cell>
+                        <Table.Cell>emma@example.com</Table.Cell>
+                        <Table.Cell>Manager</Table.Cell>
+                        <Table.Cell align="right">
+                          <Badge variant="warning" size="sm">Away</Badge>
+                        </Table.Cell>
+                      </Table.Row>
+                    </Table.Body>
+                  </Table>
+                </div>
+
+                <Divider />
+
+                {/* Sortable Table */}
+                <div>
+                  <Text size="sm" weight="semibold" style={{ marginBottom: '0.5rem' }}>
+                    Sortable Table with Hover
+                  </Text>
+                  <Table hover>
+                    <Table.Header>
+                      <Table.Row>
+                        <Table.Head
+                          sortable
+                          sorted={sortColumn === 'name' ? sortDirection : null}
+                          onSort={() => {
+                            if (sortColumn === 'name') {
+                              setSortDirection(sortDirection === 'asc' ? 'desc' : 'asc');
+                            } else {
+                              setSortColumn('name');
+                              setSortDirection('asc');
+                            }
+                          }}
+                        >
+                          Name
+                        </Table.Head>
+                        <Table.Head
+                          sortable
+                          sorted={sortColumn === 'project' ? sortDirection : null}
+                          onSort={() => {
+                            if (sortColumn === 'project') {
+                              setSortDirection(sortDirection === 'asc' ? 'desc' : 'asc');
+                            } else {
+                              setSortColumn('project');
+                              setSortDirection('asc');
+                            }
+                          }}
+                        >
+                          Project
+                        </Table.Head>
+                        <Table.Head
+                          sortable
+                          sorted={sortColumn === 'progress' ? sortDirection : null}
+                          onSort={() => {
+                            if (sortColumn === 'progress') {
+                              setSortDirection(sortDirection === 'asc' ? 'desc' : 'asc');
+                            } else {
+                              setSortColumn('progress');
+                              setSortDirection('asc');
+                            }
+                          }}
+                        >
+                          Progress
+                        </Table.Head>
+                        <Table.Head align="right">Actions</Table.Head>
+                      </Table.Row>
+                    </Table.Header>
+                    <Table.Body>
+                      <Table.Row>
+                        <Table.Cell>Website Redesign</Table.Cell>
+                        <Table.Cell>Design System</Table.Cell>
+                        <Table.Cell>
+                          <Progress value={75} size="sm" />
+                        </Table.Cell>
+                        <Table.Cell align="right">
+                          <Button variant="ghost" size="sm">View</Button>
+                        </Table.Cell>
+                      </Table.Row>
+                      <Table.Row>
+                        <Table.Cell>Mobile App</Table.Cell>
+                        <Table.Cell>iOS Development</Table.Cell>
+                        <Table.Cell>
+                          <Progress value={45} size="sm" />
+                        </Table.Cell>
+                        <Table.Cell align="right">
+                          <Button variant="ghost" size="sm">View</Button>
+                        </Table.Cell>
+                      </Table.Row>
+                      <Table.Row>
+                        <Table.Cell>API Integration</Table.Cell>
+                        <Table.Cell>Backend</Table.Cell>
+                        <Table.Cell>
+                          <Progress value={90} size="sm" />
+                        </Table.Cell>
+                        <Table.Cell align="right">
+                          <Button variant="ghost" size="sm">View</Button>
+                        </Table.Cell>
+                      </Table.Row>
+                      <Table.Row>
+                        <Table.Cell>Documentation</Table.Cell>
+                        <Table.Cell>Content</Table.Cell>
+                        <Table.Cell>
+                          <Progress value={30} size="sm" />
+                        </Table.Cell>
+                        <Table.Cell align="right">
+                          <Button variant="ghost" size="sm">View</Button>
+                        </Table.Cell>
+                      </Table.Row>
+                    </Table.Body>
+                  </Table>
+                </div>
+
+                <Divider />
+
+                {/* Striped Table */}
+                <div>
+                  <Text size="sm" weight="semibold" style={{ marginBottom: '0.5rem' }}>
+                    Striped & Compact Table
+                  </Text>
+                  <Table striped size="sm">
+                    <Table.Header>
+                      <Table.Row>
+                        <Table.Head>ID</Table.Head>
+                        <Table.Head>Product</Table.Head>
+                        <Table.Head align="center">Stock</Table.Head>
+                        <Table.Head align="right">Price</Table.Head>
+                      </Table.Row>
+                    </Table.Header>
+                    <Table.Body>
+                      <Table.Row>
+                        <Table.Cell>#001</Table.Cell>
+                        <Table.Cell>Glass Panel Pro</Table.Cell>
+                        <Table.Cell align="center">
+                          <Badge variant="success" size="sm">In Stock</Badge>
+                        </Table.Cell>
+                        <Table.Cell align="right">$299.00</Table.Cell>
+                      </Table.Row>
+                      <Table.Row>
+                        <Table.Cell>#002</Table.Cell>
+                        <Table.Cell>Blur Effect Kit</Table.Cell>
+                        <Table.Cell align="center">
+                          <Badge variant="warning" size="sm">Low</Badge>
+                        </Table.Cell>
+                        <Table.Cell align="right">$149.00</Table.Cell>
+                      </Table.Row>
+                      <Table.Row>
+                        <Table.Cell>#003</Table.Cell>
+                        <Table.Cell>Liquid Design Pack</Table.Cell>
+                        <Table.Cell align="center">
+                          <Badge variant="success" size="sm">In Stock</Badge>
+                        </Table.Cell>
+                        <Table.Cell align="right">$199.00</Table.Cell>
+                      </Table.Row>
+                      <Table.Row>
+                        <Table.Cell>#004</Table.Cell>
+                        <Table.Cell>Translucent UI</Table.Cell>
+                        <Table.Cell align="center">
+                          <Badge variant="error" size="sm">Out</Badge>
+                        </Table.Cell>
+                        <Table.Cell align="right">$399.00</Table.Cell>
+                      </Table.Row>
+                    </Table.Body>
+                  </Table>
                 </div>
               </Stack>
             </CardBody>

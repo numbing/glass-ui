@@ -1,0 +1,207 @@
+/* Table - Apple Glass Style */
+
+/* Container */
+.gl-table-container {
+  width: 100%;
+  overflow-x: auto;
+  backdrop-filter: blur(var(--gl-blur-surface)) saturate(180%);
+  -webkit-backdrop-filter: blur(var(--gl-blur-surface)) saturate(180%);
+  background: var(--gl-color-surface);
+  border: 1px solid var(--gl-color-border-subtle);
+  border-radius: var(--gl-radius-lg);
+  box-shadow: var(--gl-shadow-soft), var(--gl-shadow-inner);
+}
+
+/* Table */
+.gl-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-family: var(--gl-font-family);
+}
+
+/* Sizes */
+.gl-table-sm {
+  font-size: var(--gl-font-size-sm);
+}
+
+.gl-table-md {
+  font-size: var(--gl-font-size-md);
+}
+
+.gl-table-lg {
+  font-size: var(--gl-font-size-lg);
+}
+
+/* Header */
+.gl-table-header {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0));
+  border-bottom: 1px solid var(--gl-color-border);
+}
+
+.gl-table-head {
+  padding: var(--gl-space-lg) var(--gl-space-xl);
+  font-size: var(--gl-font-size-sm);
+  font-weight: var(--gl-font-weight-semibold);
+  color: var(--gl-color-text);
+  text-align: left;
+  letter-spacing: var(--gl-letter-spacing-wide);
+  text-transform: uppercase;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.gl-table-head-content {
+  display: flex;
+  align-items: center;
+  gap: var(--gl-space-sm);
+}
+
+.gl-table-head-left {
+  text-align: left;
+}
+
+.gl-table-head-center {
+  text-align: center;
+}
+
+.gl-table-head-right {
+  text-align: right;
+}
+
+/* Sortable headers */
+.gl-table-head-sortable {
+  cursor: pointer;
+  transition: all var(--gl-transition-fast);
+}
+
+.gl-table-head-sortable:hover {
+  background: var(--gl-color-hover);
+  color: var(--gl-color-accent);
+}
+
+.gl-table-head-sortable:active {
+  background: var(--gl-color-active);
+  transform: scale(0.98);
+}
+
+.gl-table-sort-icon {
+  font-size: var(--gl-font-size-xs);
+  color: var(--gl-color-text-muted);
+  transition: color var(--gl-transition-fast);
+}
+
+.gl-table-head-sortable:hover .gl-table-sort-icon {
+  color: var(--gl-color-accent);
+}
+
+.gl-table-head-sorted-asc .gl-table-sort-icon,
+.gl-table-head-sorted-desc .gl-table-sort-icon {
+  color: var(--gl-color-accent);
+}
+
+/* Body */
+.gl-table-body {
+  background: transparent;
+}
+
+/* Rows */
+.gl-table-row {
+  transition: all var(--gl-transition-fast);
+}
+
+.gl-table-hover .gl-table-body .gl-table-row:hover {
+  background: var(--gl-color-hover);
+  cursor: pointer;
+}
+
+.gl-table-striped .gl-table-body .gl-table-row:nth-child(odd) {
+  background: rgba(0, 0, 0, 0.02);
+}
+
+.gl-table-striped .gl-table-body .gl-table-row:nth-child(even) {
+  background: transparent;
+}
+
+/* Cells */
+.gl-table-cell {
+  padding: var(--gl-space-lg) var(--gl-space-xl);
+  color: var(--gl-color-text);
+  border-bottom: 1px solid var(--gl-color-border-subtle);
+}
+
+.gl-table-body .gl-table-row:last-child .gl-table-cell {
+  border-bottom: none;
+}
+
+.gl-table-cell-left {
+  text-align: left;
+}
+
+.gl-table-cell-center {
+  text-align: center;
+}
+
+.gl-table-cell-right {
+  text-align: right;
+}
+
+/* Size variants */
+.gl-table-sm .gl-table-head,
+.gl-table-sm .gl-table-cell {
+  padding: var(--gl-space-sm) var(--gl-space-md);
+}
+
+.gl-table-lg .gl-table-head,
+.gl-table-lg .gl-table-cell {
+  padding: var(--gl-space-xl) var(--gl-space-2xl);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .gl-table-container {
+    border-radius: var(--gl-radius-md);
+  }
+
+  .gl-table-head,
+  .gl-table-cell {
+    padding: var(--gl-space-md) var(--gl-space-lg);
+    font-size: var(--gl-font-size-sm);
+  }
+
+  /* Stack table on mobile */
+  .gl-table-responsive {
+    display: block;
+  }
+
+  .gl-table-responsive thead {
+    display: none;
+  }
+
+  .gl-table-responsive tbody,
+  .gl-table-responsive tr,
+  .gl-table-responsive td {
+    display: block;
+    width: 100%;
+  }
+
+  .gl-table-responsive tr {
+    margin-bottom: var(--gl-space-lg);
+    border: 1px solid var(--gl-color-border);
+    border-radius: var(--gl-radius-md);
+    padding: var(--gl-space-md);
+  }
+
+  .gl-table-responsive td {
+    border-bottom: none;
+    padding: var(--gl-space-sm) 0;
+  }
+
+  .gl-table-responsive td:before {
+    content: attr(data-label);
+    font-weight: var(--gl-font-weight-semibold);
+    display: inline-block;
+    margin-right: var(--gl-space-md);
+    min-width: 100px;
+  }
+}

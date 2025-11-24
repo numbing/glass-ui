@@ -21,6 +21,7 @@ export * from './components/Skeleton';
 export * from './components/Slider';
 export * from './components/Spinner';
 export * from './components/Switch';
+export * from './components/Table';
 export * from './components/Tabs';
 export * from './components/Tooltip';
 export * from './components/Typography';
