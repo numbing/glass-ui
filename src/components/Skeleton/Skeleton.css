@@ -1,0 +1,184 @@
+/* Skeleton - Bootstrap-style loading placeholders with Apple Glass styling */
+
+.gl-skeleton {
+  display: block;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: var(--gl-radius-sm);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Skeleton Variants */
+.gl-skeleton-text {
+  height: 1em;
+  margin-bottom: 0.5rem;
+  border-radius: var(--gl-radius-xs);
+  transform: scale(1, 0.6);
+}
+
+.gl-skeleton-text:last-child {
+  margin-bottom: 0;
+}
+
+.gl-skeleton-circular {
+  border-radius: var(--gl-radius-full);
+}
+
+.gl-skeleton-rectangular {
+  border-radius: 0;
+}
+
+.gl-skeleton-rounded {
+  border-radius: var(--gl-radius-lg);
+}
+
+/* Wave Animation - Shimmering effect */
+.gl-skeleton-wave {
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.1) 0%,
+    rgba(0, 0, 0, 0.2) 50%,
+    rgba(0, 0, 0, 0.1) 100%
+  );
+  background-size: 200% 100%;
+  animation: gl-skeleton-wave 1.5s ease-in-out infinite;
+}
+
+[data-gl-theme='dark'] .gl-skeleton-wave {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.08) 0%,
+    rgba(255, 255, 255, 0.15) 50%,
+    rgba(255, 255, 255, 0.08) 100%
+  );
+  background-size: 200% 100%;
+}
+
+@keyframes gl-skeleton-wave {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Pulse Animation - Opacity pulsing */
+.gl-skeleton-pulse {
+  animation: gl-skeleton-pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes gl-skeleton-pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+
+/* Skeleton Text Wrapper */
+.gl-skeleton-text-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gl-space-sm);
+}
+
+/* Skeleton Card */
+.gl-skeleton-card {
+  padding: var(--gl-space-lg);
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(var(--gl-blur-surface)) saturate(180%);
+  -webkit-backdrop-filter: blur(var(--gl-blur-surface)) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--gl-radius-lg);
+  box-shadow: var(--gl-shadow-soft);
+}
+
+.gl-skeleton-card-header {
+  display: flex;
+  align-items: center;
+  gap: var(--gl-space-md);
+  margin-bottom: var(--gl-space-lg);
+}
+
+.gl-skeleton-card-header-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--gl-space-xs);
+}
+
+/* Skeleton Table */
+.gl-skeleton-table {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gl-space-sm);
+  padding: var(--gl-space-md);
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(var(--gl-blur-surface)) saturate(180%);
+  -webkit-backdrop-filter: blur(var(--gl-blur-surface)) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--gl-radius-lg);
+}
+
+.gl-skeleton-table-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+  gap: var(--gl-space-md);
+}
+
+/* Bootstrap-style utility classes */
+
+/* Skeleton with custom width/height */
+.skeleton-sm {
+  width: 25%;
+}
+
+.skeleton-md {
+  width: 50%;
+}
+
+.skeleton-lg {
+  width: 75%;
+}
+
+.skeleton-full {
+  width: 100%;
+}
+
+/* Skeleton height utilities */
+.skeleton-h-sm {
+  height: 2rem;
+}
+
+.skeleton-h-md {
+  height: 4rem;
+}
+
+.skeleton-h-lg {
+  height: 8rem;
+}
+
+.skeleton-h-xl {
+  height: 12rem;
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .gl-skeleton-wave,
+  .gl-skeleton-pulse {
+    animation: none;
+  }
+}
+
+/* Dark mode adjustments */
+[data-gl-theme='dark'] .gl-skeleton {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+[data-gl-theme='dark'] .gl-skeleton-card,
+[data-gl-theme='dark'] .gl-skeleton-table {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}

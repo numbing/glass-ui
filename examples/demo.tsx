@@ -34,6 +34,11 @@ import {
   Progress,
   Spinner,
   Menu,
+  Skeleton,
+  SkeletonText,
+  SkeletonAvatar,
+  SkeletonCard,
+  SkeletonTable,
 } from 'glass-ui';
 
 function Demo() {
@@ -455,6 +460,102 @@ function Demo() {
                 <Spinner size="md" label="Loading..." />
                 <Spinner size="lg" variant="success" />
                 <Spinner variant="error" label="Error loading" />
+              </Stack>
+            </CardBody>
+          </Card>
+
+          {/* Skeleton Loading States */}
+          <Card>
+            <CardHeader title="Skeleton Loading States" description="Bootstrap-style placeholders with animations" />
+            <CardBody>
+              <Stack gap="xl">
+                {/* Basic Skeletons */}
+                <div>
+                  <Text size="sm" weight="semibold" style={{ marginBottom: '0.5rem' }}>
+                    Basic Variants
+                  </Text>
+                  <Stack gap="md">
+                    <Skeleton variant="text" width="100%" />
+                    <Skeleton variant="text" width="80%" />
+                    <Skeleton variant="rectangular" width={200} height={100} />
+                    <Stack direction="horizontal" gap="md">
+                      <Skeleton variant="circular" width={40} height={40} />
+                      <Skeleton variant="circular" width={56} height={56} />
+                      <Skeleton variant="circular" width={80} height={80} />
+                    </Stack>
+                  </Stack>
+                </div>
+
+                <Divider />
+
+                {/* Animation Types */}
+                <div>
+                  <Text size="sm" weight="semibold" style={{ marginBottom: '0.5rem' }}>
+                    Animation Types
+                  </Text>
+                  <Stack gap="md">
+                    <div>
+                      <Text size="xs" variant="secondary" style={{ marginBottom: '0.25rem' }}>Wave (shimmer)</Text>
+                      <Skeleton variant="text" width="100%" animation="wave" />
+                    </div>
+                    <div>
+                      <Text size="xs" variant="secondary" style={{ marginBottom: '0.25rem' }}>Pulse</Text>
+                      <Skeleton variant="text" width="100%" animation="pulse" />
+                    </div>
+                    <div>
+                      <Text size="xs" variant="secondary" style={{ marginBottom: '0.25rem' }}>No animation</Text>
+                      <Skeleton variant="text" width="100%" animation={false} />
+                    </div>
+                  </Stack>
+                </div>
+
+                <Divider />
+
+                {/* Text Lines */}
+                <div>
+                  <Text size="sm" weight="semibold" style={{ marginBottom: '0.5rem' }}>
+                    Text Placeholder
+                  </Text>
+                  <SkeletonText lines={4} />
+                </div>
+
+                <Divider />
+
+                {/* Avatars */}
+                <div>
+                  <Text size="sm" weight="semibold" style={{ marginBottom: '0.5rem' }}>
+                    Avatar Placeholders
+                  </Text>
+                  <Stack direction="horizontal" gap="md">
+                    <SkeletonAvatar size="sm" />
+                    <SkeletonAvatar size="md" />
+                    <SkeletonAvatar size="lg" />
+                    <SkeletonAvatar size="xl" />
+                  </Stack>
+                </div>
+
+                <Divider />
+
+                {/* Card Skeleton */}
+                <div>
+                  <Text size="sm" weight="semibold" style={{ marginBottom: '0.5rem' }}>
+                    Card Loading State
+                  </Text>
+                  <Grid cols={2} gap="md">
+                    <SkeletonCard avatar lines={3} />
+                    <SkeletonCard avatar={false} lines={4} animation="pulse" />
+                  </Grid>
+                </div>
+
+                <Divider />
+
+                {/* Table Skeleton */}
+                <div>
+                  <Text size="sm" weight="semibold" style={{ marginBottom: '0.5rem' }}>
+                    Table Loading State
+                  </Text>
+                  <SkeletonTable rows={5} columns={4} />
+                </div>
               </Stack>
             </CardBody>
           </Card>

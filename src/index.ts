@@ -16,6 +16,7 @@ export * from './components/Navigation';
 export * from './components/Progress';
 export * from './components/Select';
 export * from './components/Sheet';
+export * from './components/Skeleton';
 export * from './components/Slider';
 export * from './components/Spinner';
 export * from './components/Switch';

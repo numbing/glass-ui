@@ -558,6 +558,68 @@ import { Spinner } from 'apple-liquid-glass-ui';
 - `label`: Optional loading text
 - `overlay`: Full-page overlay mode with glass background
 
+### Skeleton
+
+Bootstrap-style loading placeholders with smooth animations:
+
+```tsx
+import { Skeleton, SkeletonText, SkeletonAvatar, SkeletonCard, SkeletonTable } from 'apple-liquid-glass-ui';
+
+// Basic skeleton
+<Skeleton variant="text" width="100%" />
+<Skeleton variant="rectangular" width={200} height={100} />
+<Skeleton variant="circular" width={40} height={40} />
+<Skeleton variant="rounded" width="100%" height={200} />
+
+// Animation types
+<Skeleton animation="wave" /> // Default shimmering effect
+<Skeleton animation="pulse" /> // Opacity pulsing
+<Skeleton animation={false} /> // No animation
+
+// Text lines
+<SkeletonText lines={3} />
+<SkeletonText lines={5} width="80%" />
+
+// Avatar placeholder
+<SkeletonAvatar size="sm" />
+<SkeletonAvatar size="md" />
+<SkeletonAvatar size="lg" />
+<SkeletonAvatar size="xl" />
+
+// Card with avatar and text
+<SkeletonCard avatar lines={3} />
+<SkeletonCard avatar={false} lines={5} />
+
+// Table placeholder
+<SkeletonTable rows={5} columns={4} />
+<SkeletonTable rows={10} columns={6} animation="pulse" />
+```
+
+**Skeleton Props:**
+- `variant`: `'text' | 'circular' | 'rectangular' | 'rounded'`
+- `width`: Width in pixels or percentage
+- `height`: Height in pixels or percentage
+- `animation`: `'wave' | 'pulse' | false`
+
+**SkeletonText Props:**
+- `lines`: Number of lines (default: 3)
+- `width`: Width for all lines except last
+- `animation`: Animation type
+
+**SkeletonAvatar Props:**
+- `size`: `'sm' | 'md' | 'lg' | 'xl'`
+- `animation`: Animation type
+
+**SkeletonCard Props:**
+- `avatar`: Show avatar (default: true)
+- `lines`: Number of text lines (default: 3)
+- `animation`: Animation type
+
+**SkeletonTable Props:**
+- `rows`: Number of rows (default: 5)
+- `columns`: Number of columns (default: 4)
+- `animation`: Animation type
+
 ### Menu
 
 Context menus and dropdown menus with glass styling:
