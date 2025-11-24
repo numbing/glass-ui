@@ -9,6 +9,14 @@
   padding-right: var(--gl-space-lg);
 }
 
+/* Responsive container padding */
+@media (max-width: 768px) {
+  .gl-container {
+    padding-left: var(--gl-space-md);
+    padding-right: var(--gl-space-md);
+  }
+}
+
 .gl-container-sm {
   max-width: 640px;
 }
@@ -46,6 +54,13 @@
 .gl-stack-gap-xl { gap: var(--gl-space-xl); }
 .gl-stack-gap-2xl { gap: var(--gl-space-2xl); }
 
+/* Responsive Stack - wrap horizontal stacks on mobile */
+@media (max-width: 768px) {
+  .gl-stack-horizontal {
+    flex-wrap: wrap;
+  }
+}
+
 /* Grid */
 .gl-grid {
   display: grid;
@@ -65,6 +80,41 @@
 .gl-grid-gap-lg { gap: var(--gl-space-lg); }
 .gl-grid-gap-xl { gap: var(--gl-space-xl); }
 .gl-grid-gap-2xl { gap: var(--gl-space-2xl); }
+
+/* Responsive Grid - Mobile First */
+@media (max-width: 768px) {
+  /* On mobile, 3+ columns become 1 column */
+  .gl-grid-cols-3,
+  .gl-grid-cols-6,
+  .gl-grid-cols-12 {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+
+  /* 4 columns become 2 columns on mobile */
+  .gl-grid-cols-4 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  /* Reduce gap on mobile */
+  .gl-grid-gap-xl { gap: var(--gl-space-lg); }
+  .gl-grid-gap-2xl { gap: var(--gl-space-xl); }
+}
+
+/* Tablet breakpoint */
+@media (min-width: 769px) and (max-width: 1024px) {
+  /* On tablet, reduce columns by ~half */
+  .gl-grid-cols-4 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .gl-grid-cols-6 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .gl-grid-cols-12 {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+}
 
 /* Flex utilities */
 .gl-flex {

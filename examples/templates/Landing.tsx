@@ -29,10 +29,10 @@ export default function Landing() {
             <Text size="xl" style={{ color: 'rgba(255,255,255,0.9)', maxWidth: '600px', margin: '0 auto' }}>
               Premium React components with glassmorphism design. 75% smaller than Material-UI with zero runtime overhead.
             </Text>
-            <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', marginTop: '2rem' }}>
+            <Stack direction="horizontal" gap="md" style={{ justifyContent: 'center', marginTop: '2rem' }}>
               <Button variant="primary" size="lg">Get Started</Button>
               <Button variant="subtle" size="lg">View Demo</Button>
-            </div>
+            </Stack>
           </Stack>
         </Container>
       </section>
