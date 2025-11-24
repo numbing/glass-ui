@@ -63,44 +63,30 @@ function Demo() {
         backgroundAttachment: 'fixed'
       }}
     >
-      {/* Top Navigation */}
+      {/* Persistent Sticky Navbar */}
       <GlassTopNav>
         <GlassTopNav.Left>
-          <div className="gl-logo">glass-ui</div>
+          <span style={{ fontWeight: 600, fontSize: '1.1rem' }}>🪟 Glass UI</span>
         </GlassTopNav.Left>
         <GlassTopNav.Center>
-          <GlassNavItem
-            active={activeNav === 'home'}
-            onClick={() => setActiveNav('home')}
-          >
+          <GlassNavItem active={activeNav === 'home'} onClick={() => setActiveNav('home')}>
             Home
           </GlassNavItem>
-          <GlassNavItem
-            active={activeNav === 'components'}
-            onClick={() => setActiveNav('components')}
-          >
+          <GlassNavItem active={activeNav === 'components'} onClick={() => setActiveNav('components')}>
             Components
           </GlassNavItem>
-          <GlassNavItem
-            active={activeNav === 'docs'}
-            onClick={() => setActiveNav('docs')}
-          >
+          <GlassNavItem active={activeNav === 'docs'} onClick={() => setActiveNav('docs')}>
             Docs
-          </GlassNavItem>
-          <GlassNavItem
-            active={activeNav === 'examples'}
-            onClick={() => setActiveNav('examples')}
-          >
-            Examples
           </GlassNavItem>
         </GlassTopNav.Center>
         <GlassTopNav.Right>
-          <Button variant="subtle" size="sm">Sign In</Button>
-          <Button variant="primary" size="sm">Get Started</Button>
+          <Button variant="primary" size="sm">
+            ⭐️ Star on GitHub
+          </Button>
         </GlassTopNav.Right>
       </GlassTopNav>
 
-      <Container size="xl" style={{ padding: '2rem' }}>
+      <Container size="xl" style={{ padding: '2rem', paddingTop: '5rem' }}>
         <Stack gap="2xl">
           {/* Header */}
           <div>
@@ -326,6 +312,103 @@ function Demo() {
                 </div>
                 <div>
                   <Link href="#">This is a link</Link>
+                </div>
+              </Stack>
+            </CardBody>
+          </Card>
+
+          {/* Navigation */}
+          <Card>
+            <CardHeader
+              title="Navigation"
+              description="Glass-style top and bottom navigation bars"
+            />
+            <CardBody>
+              <Stack gap="xl">
+                {/* Top Navigation Example */}
+                <div>
+                  <Text size="sm" weight="semibold" style={{ marginBottom: '0.5rem' }}>
+                    Top Navigation
+                  </Text>
+                  <div style={{
+                    border: '1px solid var(--gl-color-border)',
+                    borderRadius: 'var(--gl-radius-md)',
+                    overflow: 'hidden'
+                  }}>
+                    <GlassTopNav>
+                      <GlassTopNav.Left>
+                        <span style={{ fontWeight: 600 }}>🪟 Glass UI</span>
+                      </GlassTopNav.Left>
+                      <GlassTopNav.Center>
+                        <GlassNavItem
+                          active={activeNav === 'home'}
+                          onClick={() => setActiveNav('home')}
+                        >
+                          Home
+                        </GlassNavItem>
+                        <GlassNavItem
+                          active={activeNav === 'components'}
+                          onClick={() => setActiveNav('components')}
+                        >
+                          Components
+                        </GlassNavItem>
+                        <GlassNavItem
+                          active={activeNav === 'docs'}
+                          onClick={() => setActiveNav('docs')}
+                        >
+                          Docs
+                        </GlassNavItem>
+                      </GlassTopNav.Center>
+                      <GlassTopNav.Right>
+                        <Button variant="primary" size="sm">Sign In</Button>
+                      </GlassTopNav.Right>
+                    </GlassTopNav>
+                  </div>
+                </div>
+
+                {/* Bottom Navigation Example */}
+                <div>
+                  <Text size="sm" weight="semibold" style={{ marginBottom: '0.5rem' }}>
+                    Bottom Navigation (Mobile)
+                  </Text>
+                  <div style={{
+                    border: '1px solid var(--gl-color-border)',
+                    borderRadius: 'var(--gl-radius-md)',
+                    overflow: 'hidden',
+                    position: 'relative',
+                    paddingBottom: 'var(--gl-bottom-nav-height)'
+                  }}>
+                    <GlassBottomNav>
+                      <GlassNavItem
+                        active={activeNav === 'home'}
+                        onClick={() => setActiveNav('home')}
+                      >
+                        <span style={{ fontSize: '20px' }}>🏠</span>
+                        <span style={{ fontSize: '11px' }}>Home</span>
+                      </GlassNavItem>
+                      <GlassNavItem
+                        active={activeNav === 'search'}
+                        onClick={() => setActiveNav('search')}
+                      >
+                        <span style={{ fontSize: '20px' }}>🔍</span>
+                        <span style={{ fontSize: '11px' }}>Search</span>
+                      </GlassNavItem>
+                      <GlassNavItem
+                        active={activeNav === 'favorites'}
+                        onClick={() => setActiveNav('favorites')}
+                      >
+                        <span style={{ fontSize: '20px' }}>⭐</span>
+                        <span style={{ fontSize: '11px' }}>Favorites</span>
+                      </GlassNavItem>
+                      <GlassNavItem
+                        active={activeNav === 'profile'}
+                        onClick={() => setActiveNav('profile')}
+                      >
+                        <span style={{ fontSize: '20px' }}>👤</span>
+                        <span style={{ fontSize: '11px' }}>Profile</span>
+                      </GlassNavItem>
+                    </GlassBottomNav>
+                  </div>
                 </div>
               </Stack>
             </CardBody>
@@ -698,34 +781,6 @@ function Demo() {
           </Button>
         </Sheet.Footer>
       </Sheet>
-
-      {/* Bottom Navigation (Mobile) */}
-      <GlassBottomNav>
-        <GlassNavItem
-          active={activeNav === 'home'}
-          onClick={() => setActiveNav('home')}
-          icon="🏠"
-          label="Home"
-        />
-        <GlassNavItem
-          active={activeNav === 'components'}
-          onClick={() => setActiveNav('components')}
-          icon="🧩"
-          label="Components"
-        />
-        <GlassNavItem
-          active={activeNav === 'docs'}
-          onClick={() => setActiveNav('docs')}
-          icon="📚"
-          label="Docs"
-        />
-        <GlassNavItem
-          active={activeNav === 'examples'}
-          onClick={() => setActiveNav('examples')}
-          icon="✨"
-          label="Examples"
-        />
-      </GlassBottomNav>
     </div>
   );
 }
