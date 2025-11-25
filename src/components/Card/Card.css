@@ -13,7 +13,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: var(--gl-color-surface);
+  background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(var(--gl-blur-surface)) saturate(180%);
   -webkit-backdrop-filter: blur(var(--gl-blur-surface)) saturate(180%);
   border-radius: inherit;
